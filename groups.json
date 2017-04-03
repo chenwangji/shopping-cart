@@ -1,0 +1,164 @@
+[
+	{
+	    "id": 1,
+	    "name": "主菜",
+	    "icon": "http://dummyimage.com/64x64/ccc/333.jpg",
+	    "activeIcon": "http://dummyimage.com/64x64/c00/333.jpg",
+	    "items": [
+		    {
+		        "id": 1,
+		        "name": "三金耗儿鱼",
+		        "price": 318.00,
+		        "unit": "锅",
+		        "pic": "http://dummyimage.com/570x352/400/333.jpg",
+		        "num": 0
+
+		    }, 
+		    {
+		        "id": 2,
+		        "name": "好大一条鱼",
+		        "price": 128.00,
+		        "unit": "条",
+		        "pic": "http://dummyimage.com/570x352/500/333.jpg",
+		        "num": 0
+		    },
+		     {
+		        "id": 3,
+		        "name": "好小一条鱼",
+		        "price": 128.00,
+		        "unit": "条",
+		        "pic": "http://dummyimage.com/570x352/500/333.jpg",
+		        "num": 0
+		    }
+	    ]
+	},
+	{
+	    "id": 2,
+	    "name": "热菜",
+	    "icon": "http://dummyimage.com/64x64/ccc/333.jpg",
+	    "activeIcon": "http://dummyimage.com/64x64/cc0/333.jpg",
+	    "items": [
+		    {
+		        "id": 1,
+		        "name": "好小一条鱼",
+		        "price": 318.00,
+		        "unit": "锅",
+		        "pic": "http://dummyimage.com/570x352/060/333.jpg",
+		        "num": 0
+		    }, 
+		    {
+		        "id": 2,
+		        "name": "麻婆豆腐",
+		        "price": 66.00,
+		        "unit": "条",
+		        "pic": "http://dummyimage.com/570x352/070/333.jpg",
+		        "num": 0
+		    },
+		     {
+		        "id": 3,
+		        "name": "王婆豆腐",
+		        "price": 66.00,
+		        "unit": "条",
+		        "pic": "http://dummyimage.com/570x352/070/333.jpg",
+		        "num": 0
+		    }
+	    ]
+	},
+	{
+	    "id": 3,
+	    "name": "凉菜",
+	    "icon": "http://dummyimage.com/64x64/ccc/333.jpg",
+	    "activeIcon": "http://dummyimage.com/64x64/045/333.jpg",
+	    "items": [
+		    {
+		        "id": 1,
+		        "name": "皮蛋豆腐",
+		        "price": 318.00,
+		        "unit": "锅",
+		        "pic": "http://dummyimage.com/570x352/009/333.jpg",
+		        "num": 0
+		    }, 
+		    {
+		        "id": 2,
+		        "name": "花生米",
+		        "price": 8.00,
+		        "unit": "粒",
+		        "pic": "http://dummyimage.com/570x352/200/333.jpg",
+		        "num": 0
+		    },
+		     {
+		        "id": 3,
+		        "name": "玉米",
+		        "price": 8.00,
+		        "unit": "粒",
+		        "pic": "http://dummyimage.com/570x352/280/333.jpg",
+		        "num": 0
+		    }
+	    ]
+	},
+	{
+	    "id": 4,
+	    "name": "汤品",
+	    "icon": "http://dummyimage.com/64x64/ccc/333.jpg",
+	    "activeIcon": "http://dummyimage.com/64x64/0c0/333.jpg",
+	    "items": [
+		    {
+		        "id": 1,
+		        "name": "西湖牛肉羹",
+		        "price": 28.00,
+		        "unit": "锅",
+		        "pic": "http://dummyimage.com/570x352/700/333.jpg",
+		        "num": 0
+		    }, 
+		    {
+		        "id": 2,
+		        "name": "鱼头汤",
+		        "price": 100.00,
+		        "unit": "碗",
+		        "pic": "http://dummyimage.com/570x352/486/333.jpg",
+		        "num": 0
+		    },
+		     {
+		        "id": 3,
+		        "name": "骨头汤",
+		        "price": 100.00,
+		        "unit": "碗",
+		        "pic": "http://dummyimage.com/570x352/406/333.jpg",
+		        "num": 0
+		    }
+	    ]
+	},
+	{
+	    "id": 5,
+	    "name": "点心",
+	    "icon": "http://dummyimage.com/64x64/ccc/333.jpg",
+	    "activeIcon": "http://dummyimage.com/64x64/009/333.jpg",
+	    "items": [
+		    {
+		        "id": 1,
+		        "name": "苏州糕点",
+		        "price": 28.00,
+		        "unit": "笼",
+		        "pic": "http://dummyimage.com/570x352/2cc/333.jpg",
+		        "num": 0
+		    }, 
+		    {
+		        "id": 2,
+		        "name": "黄豆黄",
+		        "price": 30.00,
+		        "unit": "碗",
+		        "pic": "http://dummyimage.com/570x352/c6c/333.jpg",
+		        "num": 0
+		    },
+		     {
+		        "id": 3,
+		        "name": "豆腐花",
+		        "price": 30.00,
+		        "unit": "碗",
+		        "pic": "http://dummyimage.com/570x352/c0c/333.jpg",
+		        "num": 0
+		    }
+	    ]
+	}
+	
+]

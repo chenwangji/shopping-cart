@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<script src="js/mobile.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+		
+			@charset "UTF-8";
+			[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}
+			
+			
+			html,body {
+				width: 100%;
+				height: 100%;
+				font-family: "微软雅黑";
+			}
+			.header {
+				position: relative;
+			}
+			body {
+				display: flex;
+				flex-direction: column;
+			}
+			.header h1 {
+				height: 2rem;
+				line-height: 2rem;
+				text-align: center;
+				font-size: 0.6rem;
+				color: #fff;
+				font-weight: 400;
+				background: #f34336;
+			}
+			.header a {
+				position: absolute;
+				top: 0.36rem;
+				left: 0.8rem;
+				width: 1.28rem;
+				height: 1.28rem;
+				border-radius: 50%;
+				overflow: hidden;
+			}
+			.header a img {
+				width: 1.28rem;
+				height: 1.28rem;
+				border-radius: 50%;
+			}
+			
+			main {
+				display: flex;
+				background: #fff;
+				flex: 1;
+			}
+			
+			.menu {
+				width: 2.8rem;
+				box-sizing: border-box;
+				padding: 0 0.88rem 0 0.72rem;
+				background: #f4f4f4;
+			}
+			.menu li {
+				height: 3.12rem;
+				box-sizing: border-box;
+				padding-top: 0.96rem;
+			}
+			.menu .icon {
+				width: 1.28rem;
+				height: 1.28rem;
+				border-radius: 50%;
+				overflow: hidden;
+			}
+			
+			.menu .icon img {
+				width: 1.28rem;
+				height: 1.28rem;
+				border-radius: 50%;
+			}
+			
+			.menu .name {
+				font-size: 0.44rem;
+				color: #969696;
+				padding-left: 0.2rem;
+			}
+			
+			.menu .active .name {
+				color: #f34336;
+
+			}
+			
+			
+			.content {
+				margin: 0 auto;
+				
+			}
+			
+			.content h2 {
+				height: 1.24rem;
+				line-height: 1.24rem;
+				color: #a9adb0;
+				font-size: 0.48rem;
+			}
+			.content .list {
+				height: calc(100% - 1.24rem);
+				overflow: auto;
+			}
+			.content .list li {
+				margin-bottom: 1.2rem;
+			}
+			
+			.content .list .image img {
+				width: 11.4rem;
+				height: 7.04rem;
+			}
+			
+			.content .list .info {
+				display: flex;
+				justify-content: space-between;
+			}
+			
+			.content .list .info .choose {
+				display: flex;
+				align-items: flex-end;
+				
+			}
+			
+			.content .list .info button {
+				display: inline-block;
+				width: 1rem;
+				height: 1rem;
+				border-radius: 50%;
+				background: url(img/mynus.png) center no-repeat / 0.98rem 0.98rem;
+			}
+			.content .list .info button.plus {
+				background-image: url(img/plus.png);
+			}
+			
+			.content .list .info .ammount {
+				display: inline-block;
+				width: 1.44rem;
+				height: 1rem;
+				line-height: 1rem;
+				text-align: center;
+				font-size: 0.6rem;
+				
+			}
+			
+			.content .list .detail h4 {
+				height: 1.28rem;
+				line-height: 1.28rem;
+				font-size: 0.54rem;
+				color: #1b1e20;
+			}
+			.content .list .detail .price {
+				font-size: 0.44rem;
+				color: #1b1e20;
+			}
+			.content .list .detail .price span {
+				color: #9da0a8;
+			}
+			
+			.footer {
+				height: 2rem;
+				width: 100%;
+				display: flex;
+			}
+			.footer button {
+				display: inline-block;
+				width: 4.48rem;
+				height: 100%;
+				line-height: 2rem;
+				text-align: center;
+				background: #6b615e;
+				font-size: 0.56rem;
+				color: #999;
+			}
+			.footer button a {
+				display: block;
+				width: 100%;
+				height: 100%;
+				color: #999;
+			}
+			
+			.footer button.active {
+				background: #f34336;
+			}
+			
+			.footer .total {
+				/*display: inline-block;*/
+				flex: 1;
+				height: 100%;
+				line-height: 2rem;
+				padding-left: 0.52rem;
+				background: #3e3a39;
+				font-size: 0.56rem;
+				color: #c6c5c5;
+			}
+		</style>
+		
+	</head>
+	<body ng-app="myApp" ng-controller="myCtrl">
+
+			<header class="header">
+				<a href=""><img src="img/logo.png"/></a>
+				<h1>渝北店，8号桌</h1>
+			</header>
+			<main>
+				<ul class="menu" ng-cloak>
+					<li ng-repeat="item in bookData" ng-click="change($index)" ng-class="{ active: chooseIndex === $index }">
+						<div class="icon"><img ng-src="{{  chooseIndex === $index ? item.activeIcon : item.icon }}"/></div>
+						<p class="name">{{ item.name }}</p>
+					</li>
+				</ul>
+				<div class="content" ng-cloak>
+					<h2>{{ itemTitle }}</h2>
+					<ul class="list">
+						<li ng-repeat="item in itemList">
+							<div class="image">
+								<img ng-src="{{ item.pic }}" alt="" />
+							</div>
+							<div class="info">
+								<div class="detail">
+									<h4>{{ item.name }}</h4>
+									<p class="price">{{ item.price | currency: "￥": 0}}  <span>/ {{ item.unit }}</span></p>
+								</div>		
+								<div class="choose">
+									<button class="mynus" ng-click="mynus($index)" ng-show="item.num"></button>
+									<span class="ammount" ng-show="item.num">{{ item.num }}</span>
+									<button class="plus" ng-click="plus($index)"></button>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+
+			</main>
+			
+			<footer class="footer">
+				<div class="total">已点<span>{{ total }}</span>道菜</div>
+				<button ng-class="{active: total > 0}"><a href="confirm.html">已点菜单</a></button>
+			</footer>
+
+		<script src="js/angularjs.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			angular.module("myApp", [])
+
+			.controller("myCtrl", ["$scope", "$http", function($scope, $http) {
+				//计算总数
+				$scope.sum = function() {
+					$scope.total = 0;
+					angular.forEach($scope.bookData, function(item, index) {
+						angular.forEach(item.items, function(subItem, index) {
+							$scope.total += subItem.num;
+					
+						})
+					});					
+				}
+				
+				//保存
+				$scope.save = function() {
+					localStorage.dinnerData = JSON.stringify($scope.bookData);
+				}
+				
+//-----------------------------------------------------				
+				
+				//数据
+				$scope.bookData = localStorage.dinnerData ? JSON.parse(localStorage.dinnerData) : [];
+				
+
+				$scope.itemList = [];
+				$scope.itemTitle = "主菜";
+				$scope.chooseIndex = 0;
+
+				//总数
+				$scope.total = 0;
+				//计算总数
+				$scope.sum();
+				
+				//初次加载
+				if ($scope.bookData.length) {
+					$scope.itemList = $scope.bookData[0].items;
+				}
+				
+				
+				//页面如果没数据，加载即请求数据
+				if (!$scope.bookData.length) {
+					
+					$http.get("groups.json")
+					.then(
+						res => {
+							console.log(res.data);
+							
+							$scope.bookData = res.data;
+							
+							//初次加载
+							$scope.itemList = $scope.bookData[0].items;
+						},
+						err => console.log(new Error("请求出错！"))
+					);
+				}
+				
+				
+				$scope.change = function(index) {
+					$scope.itemList = $scope.bookData[index].items;
+					$scope.itemTitle = $scope.bookData[index].name;
+					$scope.chooseIndex = index;
+					
+					
+				};
+				
+				$scope.mynus = function(index) {
+//					console.log(index);
+					var temp = --$scope.bookData[$scope.chooseIndex].items[index].num;
+					//计算总数
+					$scope.sum();
+					//保存到localStorage
+					$scope.save();
+					
+					
+					if (temp <= 0) {
+						$scope.bookData[$scope.chooseIndex].items[index].num = 0;
+					}
+				};
+				
+				//加法
+				$scope.plus = function(index) {
+//					console.log(index);
+					++$scope.bookData[$scope.chooseIndex].items[index].num;
+					
+					//计算总数
+					$scope.sum();
+					
+					//保存到localStorage
+					$scope.save();
+				}					
+
+			}]);
+		</script>
+	</body>
+</html>

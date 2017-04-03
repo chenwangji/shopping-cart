@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<script src="js/mobile.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+		
+			@charset "UTF-8";
+			[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}
+
+			
+			html, body {
+				height: 100%;
+			}
+			body {
+				display: flex;
+				flex-direction: column;
+			}
+			
+			header {
+				height: 2rem;
+				line-height: 2rem;
+				font-size: 0.72rem;
+				text-align: center;
+				border-bottom: 1px solid #444;
+				position: relative;
+			}
+			header a {
+				position: absolute;
+				left: 0;
+				width: 1.6rem;
+				height: 100%;
+				background: url(img/arrow.png) center no-repeat / 0.4rem 0.8rem;
+			}
+			
+			main {
+				background-color: #f4f4f4;
+				flex: 1;
+			}
+			
+			.box {
+				padding: 0 0.6rem;
+				border: 1px solid #444;
+				margin-top: 0.6rem;
+				background: #fff;
+			}
+			
+			.box .info {
+				height: 1.76rem;
+				line-height: 1.76rem;
+				display: flex;
+				align-items: center;
+				border-bottom: 1px dashed #444;
+			}
+			.box .info p {
+				height: 1.76rem;
+				line-height: 1.76rem;	
+				font-size: 0.52rem;
+				color: #999;
+				margin-left: 0.44rem;
+			}
+			
+			.box .info .profile img {
+				width: 1rem;
+				height: 1rem;
+				border-radius: 50%;
+			}
+			
+			.box .book-list {
+				display: flex;
+				height: 1.76rem;
+				line-height: 1.76rem;
+				font-size: 0.52rem;
+				border-bottom: 1px solid #444;
+			}
+			.box .book-list .name {
+				flex: 2;
+			}
+			.box .book-list .price {
+				flex: 1;
+			}
+			.box .book-list .choose {
+				flex: 1;
+				display: flex;
+				align-items: center;
+			}
+			.box .book-list .choose button {
+				display: inline-block;
+				width: 1rem;
+				height: 1rem;
+				border-radius: 50%;
+				background: url(img/mynus.png) center no-repeat / 0.98rem 0.98rem;
+			}
+			.box .book-list .choose button.plus {
+				background-image: url(img/plus.png);
+			}
+			.box .book-list .choose .ammount {
+				display: inline-block;
+				width: 1.44rem;
+				height: 1rem;
+				line-height: 1rem;
+				text-align: center;
+				font-size: 0.6rem;
+
+			}
+						
+			.footer {
+				height: 2rem;
+				width: 100%;
+				display: flex;
+			}
+			.footer button {
+				display: inline-block;
+				width: 4.48rem;
+				height: 100%;
+				line-height: 2rem;
+				text-align: center;
+				background: #6b615e;
+				font-size: 0.56rem;
+				color: #999;
+			}
+			
+			.footer button.active {
+				background: #f34336;
+			}
+			
+			.footer .total {
+				/*display: inline-block;*/
+				flex: 1;
+				height: 100%;
+				line-height: 2rem;
+				padding-left: 0.52rem;
+				background: #3e3a39;
+				font-size: 0.56rem;
+				color: #c6c5c5;
+			}
+			
+		</style>
+	</head>
+	<body ng-app="myApp" ng-controller="myCtrl">
+		<header>
+			<a href="index.html"></a>
+			确认订单
+		</header>
+		<main>
+			<div class="box"  ng-show="total">
+				<div class="info">
+					<div class="profile">
+						<img src="img/profile.png"/>
+					</div>
+					<p>你爷爷</p>
+				</div>
+				<ul ng-cloak>
+					<li ng-repeat="item in bookData"  ng-init="outIndex=$index">
+						<div ng-repeat="subItem in item.items" ng-show="subItem.num" class="book-list">
+	
+							<span class="name">{{ subItem.name }}</span>
+							<div class="price">
+								<span>{{ subItem.price | currency:"￥": 0}}</span>
+								<span>/{{ subItem.unit }}</span>		
+							</div>
+
+							<div class="choose">
+								<button class="mynus" ng-click="mynus($index, outIndex)" ng-show="subItem.num"></button>
+								<span class="ammount" ng-show="subItem.num">{{ subItem.num }}</span>
+								<button class="plus" ng-click="plus($index, outIndex)"></button>
+							</div>
+						</div>
+					</li>
+				</ul>				
+			</div>
+
+		</main>
+		<!--<div class="tips">
+			备注：(选填)请输入您的口味、要求、忌口等
+		</div>-->
+		<footer class="footer">
+			<div class="total">已点<span>{{ total }}</span>道菜</div>
+			<button ng-class="{active: total > 0}">传送厨房</button>
+		</footer>
+		
+		
+		<script src="js/angularjs.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			angular.module("myApp", [])
+			
+			.controller("myCtrl", ["$scope", function($scope) {
+				
+				//计算总数
+				$scope.sum = function() {
+					$scope.total = 0;
+					angular.forEach($scope.bookData, function(item, index) {
+						angular.forEach(item.items, function(subItem, index) {
+							$scope.total += subItem.num;
+					
+						})
+					});					
+				}
+				
+				//保存
+				$scope.save = function() {
+					localStorage.dinnerData = JSON.stringify($scope.bookData);
+				}
+				
+//-----------------------------------------------------					
+				
+				//数据
+				$scope.bookData = localStorage.dinnerData ? JSON.parse(localStorage.dinnerData) : [];
+				
+				//总数
+				$scope.total = 0;
+				//计算总数
+				$scope.sum();
+				
+				//减
+				$scope.mynus = function(index, outIndex) {
+
+					var temp = --$scope.bookData[outIndex].items[index].num;
+					if (temp <= 0) {
+						$scope.bookData[outIndex].items[index].num = 0;
+					}
+					//计算总数
+					$scope.sum();
+					
+					//保存到localStorage
+					$scope.save();
+
+				}
+				
+				//加
+				$scope.plus = function(index, outIndex) {
+
+					++$scope.bookData[outIndex].items[index].num;
+					
+					//计算总数
+					$scope.sum();
+					
+					//保存到localStorage
+					$scope.save();
+
+				}
+				
+			}])
+		</script>
+	</body>
+</html>
