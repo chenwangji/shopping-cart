@@ -1,2 +1,3 @@
 # shopping-cart
-a shopping-cart demo base on AngalarJs
+a shopping-cart demo base on AngalarJs.
+
